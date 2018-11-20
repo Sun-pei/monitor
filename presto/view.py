@@ -51,7 +51,7 @@ class Pysettimer(threading.Thread):
     it need  pass funciton pionter into the class ,
     timeout and is_loop could be default , or customized
     '''
-    def __init__(self, function, args=None,timeout=5,is_loop=True):
+    def __init__(self, function, args=(),timeout=5*60,is_loop=True):
         threading.Thread.__init__(self)
         self.event=threading.Event()
         # inherent the funciton and args
