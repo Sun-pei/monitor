@@ -1,7 +1,12 @@
-from presto.view import pres2influx
+from presto.view import pres2influx,Pysettimer
+import time
 
 if __name__ == '__main__':
-    pres2influx()
+    mytime = Pysettimer(pres2influx)
 
+    mytime.start()
+    time.sleep(30)
+    mytime.stop()
+    print("time over")
 
 

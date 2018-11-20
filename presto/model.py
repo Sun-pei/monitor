@@ -40,11 +40,10 @@ class Presto:
         return conn
 
     # 获取查询结果集
-    def fetch_all(self,sql:str):
+    def fetch_all(self,sql:str,d=datetime.date.today()):
         res = ''
         if (self._conn):
             try:
-                d = datetime.date.today()
                 fsql =sql.format(d,d)
                 self._cursor.execute(fsql)
                 res = self._cursor.fetchall()
@@ -148,6 +147,19 @@ class Influx:
                 self._logger.error("write influx failed, %s" % data)
                 flag = False
             return flag
+
+    def drop(self,name):
+        flag = False
+        if (self._client):
+            try:
+                self._client.drop_database(name)
+                flag = True
+            except Exception as data:
+                self._logger.error("drop influx failed, %s" % data)
+                flag = False
+            return flag
+
+
 
 
 
