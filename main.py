@@ -5,8 +5,8 @@ if __name__ == '__main__':
     mytime = Pysettimer(pres2influx)
 
     mytime.start()
-    time.sleep(30)
-    mytime.stop()
-    print("time over")
+    # time.sleep(30)
+    # mytime.stop()
+    # print("time over")
 
 
